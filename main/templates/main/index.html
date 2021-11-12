@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/default.css' %}" />
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laptop 4 U</title>
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="./css/default.css">     -->
+
+</head>
+
+<body>
+ <div class="container-fluid">
+    <section id="main">
+
+        <div class="col-lg-4 col-xs-7 mx-auto mt-5 px-5">
+            <img src="{% static 'main/images/start_page.png' %}" alt="mainImage_1" class="img-fluid">
+        </div>
+
+        <div class="col-lg-3 col-xs-5 mx-auto mb-3 px-5">
+            <img src="{% static 'main/images/laptop.png' %}" alt="mainImage_2" class="img-fluid">
+        </div>
+
+        <div class="col-lg-3 col-xs-1 mx-auto pt-5 px-5">
+            <a href=https://google.com> <img src="{% static 'main/images/start_button.png' %}" class="img-fluid"></a>
+        </div>
+
+    </section>
+</div>
+</body>
+
+</html>

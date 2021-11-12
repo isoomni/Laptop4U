@@ -10,4 +10,4 @@ def index(request):
         'laptops': laptops,
     }
     
-    return render(request, 'index.html', context=context)
+    return render(request, 'main/index.html', context=context)
