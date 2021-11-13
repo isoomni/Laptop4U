@@ -57,4 +57,9 @@ Welcome to Laptop 4 U!
     		- card_discount max_length 10으로 수정
     	- main/urls.py 파일 생성
     		- 메인 화면 들어올 때 index.html 보여주도록 url 설정
+        
+    + TODO
+        - admin페이지에서 question 추가 시 발생하는 오류 파악
+            - NOT NULL constraint failed: main_question.created_at
+        
 

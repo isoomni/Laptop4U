@@ -10,12 +10,23 @@ class ChoiceInline(admin.StackedInline):
 
 
 class QuestionAdmin(admin.ModelAdmin):
+    
     fieldsets = [
-        (None, {'fields': ['question_contents']})
+        (None,               {'fields': ['question_contents']}),
+        ('Question information', {'fields': ['question_describe','question_img','question_type', 'status']}),
     ]
+    
+    '''
+    fieldsets = [
+        (None, {'fields': ['question_contents']}),
+    ]
+    '''
     inlines = [ChoiceInline]
-
+    
+    
+    
+    
 
 admin.site.register(Laptop)
 admin.site.register(Question, QuestionAdmin)
-# admin.site.register(Choice)
+admin.site.register(Choice)

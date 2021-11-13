@@ -38,12 +38,12 @@ class Question(models.Model):
     question_describe = models.CharField(max_length=45, null=True)
     question_img = models.TextField(null=True)
     question_type = models.CharField(max_length=45, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
     status = models.CharField(max_length=1, default='Y')
 
     def __str__(self):
-        return self.question_contents
+        return str(self.question_contents)
 
 
 class Choice(models.Model):
