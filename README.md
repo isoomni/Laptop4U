@@ -44,7 +44,7 @@ Welcome to Laptop 4 U!
     	- 첫 번째 페이지에 Laptop별 count 추가
     	- css 및 스타일 파일은 static에
 
-## 201113 개발일지
+## 211113 개발일지
 
 ### EUNJEONG
 
