@@ -25,8 +25,8 @@ class Laptop(models.Model):
     review = models.IntegerField(null=True)
     final_price = models.FloatField(null=True)
     card_discount = models.CharField(max_length=10, default=0)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     status = models.CharField(max_length=1, default='Y')
 
     def __str__(self):
@@ -34,13 +34,13 @@ class Laptop(models.Model):
 
 
 class Question(models.Model):
-    question_contents = models.CharField(max_length=45)
+    question_contents = models.CharField(max_length=45, null=True)
     question_describe = models.CharField(max_length=45, null=True)
     question_img = models.TextField(null=True)
     question_type = models.CharField(max_length=45, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
-    status = models.CharField(max_length=1, default='Y')
+    status = models.CharField(max_length=1, default='Y', null=True)
 
     def __str__(self):
         return str(self.question_contents)
@@ -48,10 +48,10 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_contents = models.CharField(max_length=45)
+    choice_contents = models.CharField(max_length=45, null=True)
     choice_weight = models.IntegerField(default=1)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     status = models.CharField(max_length=1, default='Y')
 
     def __str__(self):
