@@ -16,16 +16,15 @@ def index(request):
 def details(request):
     questions = Question.objects.all()
     
-    context = {'questions': str(questions)}
-    
-    print(questions)
+    context = {'questions': questions}
     
     return render(request, 'main/details.html', context=context)
 
 
 
-# def result(request):
+def result(request):
     
+    results = Laptop.objects.filter(cpu_level="1")
+
     
-    
-#     return render(request, 'main/results.html', context=context)
+    return render(request, 'main/results.html', context=context)
