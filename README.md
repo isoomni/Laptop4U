@@ -13,7 +13,7 @@ Welcome to Laptop 4 U!
     	- templates 생성 및 models.py, views.py와 index.html 연결
     	- 개발한 프론트 git 공유
     	- project container 구조 설명 업로드
-		- README.md 개발일지 틀 만들고 팀원들에게 이용 권유
+    	- README.md 개발일지 틀 만들고 팀원들에게 이용 권유
 
     + TODO
     	- ERD 수정
@@ -37,8 +37,8 @@ Welcome to Laptop 4 U!
     	- erd 설계 수정
     	- database - model.py(class Laptop, class Question, class Choice)
     	- css 연결
-	
-	+TODO
+
+    +TODO
     	- laptop dumy data → 준석 10개
     	- choice, question dummy data→ 4은정/3수민/3수연
     	- erd 수정
@@ -60,24 +60,45 @@ Welcome to Laptop 4 U!
     		- card_discount max_length 10으로 수정
     	- main/urls.py 파일 생성
     		- 메인 화면 들어올 때 index.html 보여주도록 url 설정
-        
+
     + TODO
         - admin페이지에서 question 추가 시 발생하는 오류 파악
             - NOT NULL constraint failed: main_question.created_at
-			
+
 ## 211115 개발일지
 
 ### isoomni
 
-	+ DONE
-		- admin페이지에서 question 추가 시 발생하는 오류 해결
+    + DONE
+    	- admin페이지에서 question 추가 시 발생하는 오류 해결
             - NOT NULL constraint failed: main_question.created_at
-			- default가 없는데 null=true가 빠진 부분이 있었음. created_at에도 null=true 해줌.
-		- views.py 에 index, details, results 함수 생성 및 쿼리 작성
-		- views.py details 함수에 question response 하도록 api 작성 (print로 확인할 수 있게 해둠.)
-		- details.html 연결
-	
-	+ TODO
-		- 2번 질문을 참을성이 있으신가요? 전 참지 않아요 등으로 더 추상적으로 바꾸는게 어떨까요?
-        
+    		- default가 없는데 null=true가 빠진 부분이 있었음. created_at에도 null=true 해줌.
+    	- views.py 에 index, details, results 함수 생성 및 쿼리 작성
+    	- views.py details 함수에 question response 하도록 api 작성 (print로 확인할 수 있게 해둠.)
+    	- details.html 연결
+
+    + TODO
+    	- 2번 질문을 참을성이 있으신가요? 전 참지 않아요 등으로 더 추상적으로 바꾸는게 어떨까요?
+
+## 211116 개발일지
+
+### EUNJEONG
+
+    + DONE
+    	- choice, question, Laptop API 페이지 생성
+    		- serializers.py
+    		- ~/api/choice/
+    		- ~/api/question/
+    		- ~/api/laptop/
+            
+
+## 211119 개발일지
+
+### CHANHYEOK
+    
+    +DONE
+        -MainPage 추가
+            -노트북 추천 애니메이션 추가
+            -노트북 검사 결과 순위 표시 추가
+
 
