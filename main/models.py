@@ -56,3 +56,19 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_contents
+
+# # class Count(models.Model):
+# #     count_idx = models.AutoField(primary_key=True)
+# #     count = models.IntegerField(default=0, null=True)
+# #     laptop = models.ForeignKey(Laptop, on_delete=models.CASCADE)
+# #     crated_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+# #     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+# #     status = models.CharField(max_length=1, default='Y')
+
+class Answer(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    
+    
+    
+    

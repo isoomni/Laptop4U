@@ -101,4 +101,13 @@ Welcome to Laptop 4 U!
             -노트북 추천 애니메이션 추가
             -노트북 검사 결과 순위 표시 추가
 
+## 211128 개발일지
+
+### EUNJEONG, isoomni, 0104suyeon
+
+    +DONE
+        - views.py의 def reulst 수정
+            - details.html에서 input 값 가져옴
+            - input 값 바탕으로 필터링 구현
+        - details.html 질문 출력 방식 수정
 

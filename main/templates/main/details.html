@@ -17,22 +17,152 @@
 <body>
  <div class="container-fluid">
     <section id="qna">
-  <form action="/result/" method="post">
-    {% csrf_token %}
-    {% for question in questions %}
-      <h3>{{ question.question_contents }}</h3>
-      {% for choice in question.choice_set.all %}
-        <div>
-          <input type="radio" name="question-{{ question.pk}}" id="choice-{{ choice.pk }}">
-            <!-- 버튼 방식 변경 -->
-          <label for="choice-{{ choice.pk }}">{{ choice.choice_contents }}</label>
-        </div>
-      {% endfor %}
-      <!-- 질문 한페이지씩 구현 -->
-      <hr>
-    {% endfor %}
-    <input type="submit" value="제출하기">
-  </form>
+	  	<form action="{% url 'results' %}"method="post">
+     		 {% csrf_token %}
+            <h3>
+                {{questions.0.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.0.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question0" value="{{choice.id}}" id="question0-{{ choice.id }}">
+                <label for="question0-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.1.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.1.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question1" value="{{choice.id}}" id="question1-{{ choice.id }}">
+                <label for="question1-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.2.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.2.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question2" value="{{choice.id}}" id="question2-{{ choice.id }}">
+                <label for="question2-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.3.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.3.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question3" value="{{choice.id}}" id="question3-{{ choice.id }}">
+                <label for="question3-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.4.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.4.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question4" value="{{choice.id}}" id="question4-{{ choice.id }}">
+                <label for="question4-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.5.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.5.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question5" value="{{choice.id}}" id="question5-{{ choice.id }}">
+                <label for="question5-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.6.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.6.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question6" value="{{choice.id}}" id="question6-{{ choice.id }}">
+                <label for="question6-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.7.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.7.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question7" value="{{choice.id}}" id="question7-{{ choice.id }}">
+                <label for="question7-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+            
+            <h3>
+                {{questions.8.question_contents}}
+            </h3>
+            <div>
+                {% for choice in questions.8.choice_set.all %}
+                <div>
+                    
+                <input type="radio" name = "question8" value="{{choice.id}}" id="question8-{{ choice.id }}">
+                <label for="question8-{{ choice.id }}">{{ choice.choice_contents }}</label>
+                </div>
+                {% endfor %}
+                
+            </div>
+          
+            
+            <!--
+{% for question in questions %}
+            {{questions.1}}
+			  <h3>{{ question.question_contents }}</h3>
+			  {% for choice in question.choice_set.all %}
+				<div>
+				  <input type="radio" name="question-{{ question.pk}}" value="choice-{{ choice.pk }}" id="choice-{{ choice.pk }}">
+					
+				  <label for="choice-{{ choice.pk }}">{{ choice.choice_contents }}</label>
+				</div>
+			  {% endfor %}
+			  
+			  <hr>
+			{% endfor %}
+        -->
+			<input type="submit" value="제출하기">
+	  	</form>
      </section>    
 </div>
 </body>
