@@ -111,3 +111,13 @@ Welcome to Laptop 4 U!
             - input 값 바탕으로 필터링 구현
         - details.html 질문 출력 방식 수정
 
+## 211130 개발일지
+
+### EUNJEONG
+
+    +DONE
+        - Q() 사용하여 filter 추가
+        - input 값 필터링 부등호 조건 만족
+        
+    +TODO
+        - question6 용도 구분 필요

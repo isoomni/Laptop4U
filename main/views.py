@@ -144,14 +144,69 @@ def results(request):
     if q1 == 3:
         result1 = result0.ogg()
         
-     '''   
-        
-        
-    results = Laptop.objects.filter(cpu_level=1)
-    results2 = results.filter(ram=16)
+    '''   
+    q = Q()
     
-    answer = [q0_choice, q1_choice, q2_choice,q3_choice, q4_choice, q5_choice,q6_choice, q7_choice, q8_choice]
-    return render(request, 'main/results.html', {"key" : results2})
+    if q0_choice == '1':
+        q.add(Q(display__gte=15), q.AND)
+        #results0 = Laptop.objects.filter(display__gte=15)
+    else:
+        q.add(Q(display__lt=15), q.AND)
+        #results0 = Laptop.objects.filter(display__lt=15)
+    
+    if q1_choice == '3':
+        q.add(Q(cpu_level=1), q.AND)
+        #results1 = results0.filter(cpu_level=1)
+    else:
+        q.add(Q(cpu_level__gt=1), q.AND)
+        #results1 = results0.filter(cpu_level__gt=1)
+    
+    if q2_choice == '5':
+        q.add(Q(ram__gte=16), q.AND)
+        #results2 = results1.filter(ram=16)
+    else:
+        q.add(Q(ram__lt=16), q.AND)
+        #results2 = results1.filter(ram__lt=16)
+        
+    if q3_choice == '7':
+        q.add(Q(os_type='I'), q.AND)
+    else:
+        q.add(Q(os_type='W'), q.AND)
+    
+    if q4_choice == '10':
+        q.add(Q(pd_charge='C'), q.AND)
+    else:
+        q.add(Q(pd_charge='N'), q.AND)
+        
+    if q5_choice == '12':
+        q.add(Q(touch='Y'), q.AND)
+    else:
+        q.add(Q(touch='N'), q.AND)
+        
+    if q6_choice == '14':
+        pass
+    else:
+        pass
+    
+    if q7_choice == '19':
+        q.add(Q(sales_price__lte=1000000), q.AND)
+    elif q7_choice == '20':
+        q.add(Q(sales_price__lte=1500000), q.AND)
+    
+    if q8_choice == '22':
+        q.add(Q(weight__lte=13), q.AND)
+    elif q8_choice == '23':
+        q.add(Q(weight__te=15), q.AND)
+    
+    
+    #results = Laptop.objects.filter(display__gte=15)
+    #resultss = results.filter(cpu_level=1)
+    results = Laptop.objects.filter(q)
+    answer = [q0_choice, q1_choice, q2_choice,q3_choice, q4_choice, q5_choice, q6_choice, q7_choice, q8_choice]
+    
+    print(answer)
+    
+    return render(request, 'main/results.html', {"key" : results})                            
     
 #
 #
