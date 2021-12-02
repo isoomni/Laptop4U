@@ -13,11 +13,13 @@ from .models import Question, Laptop, Choice, Answer
 
 
 def index(request):
+    
+    rank = Laptop.objects.order_by('count')
 
     laptops = Laptop.objects.all()
-    counts = Laptop.objects.count()
+    # counts = Laptop.objects.count()
 
-    context = {'laptops': laptops}
+    context = {'laptops': laptops, 'rank':rank}
 
     return render(request, 'main/index.html', context=context)
 
@@ -31,100 +33,6 @@ def details(request):
 
 
 
-'''
-def results(request):
-    context = {}
-    
-    filtered_laptops = LaptopFilter(
-        request.GET,
-        queryset = Laptop.objects.all()
-    )
-    
-    context['filtered_laptops'] = filtered_laptops
-    
-    paginated_filtered_laptops = Paginator(filtered_laptops.qs, 2)
-    page_number = request.GET.get('page')
-    laptop_page_obj = paginated_filtered_laptops.get_page(page_number)
-    
-    context['laptop_page_obj'] = laptop_page_obj
-    
-    return render(request, 'main/results.html', context=context)
-'''
-
-
-'''
-def results(request):
-    context = []
-    
-    filtered_laptops = LaptopFilter(
-    )
-'''
-
-
-    # # Question1
-    # if (선택지1):
-    #     results = Laptop.objects.filter(display>=15)
-    # else:
-    #     results = Laptop.objects.filter(display<15)
-        
-    
-    # results = Laptop.objects.filter(cpu_level="1")
-    
-#     display               = request.GET.getlist('display', None)
-#     cpu_level              = request.GET.getlist('cpu_level', None)
-#     price_upper_range  = request.GET.get('PriceUpper', 1000000)
-#     price_lower_range  = request.GET.get('PriceLower', 0)
-
-#     q=Q()
-#     if category:
-#         q &= Q(category_id = category)
-#     if color:
-#         q &= Q(color_name__in = color)
-#     if size:
-#         q &= Q(size__name__in = size)
-
-#     q &= Q(price__range = (price_lower_range,price_upper_range))
-    
-    
-    
-
-#    return render(request, 'main/results.html', context=context)
-
-
-# class LaptopListAPI(APIView):
-#     def get(self, request):
-#         # queryset = Laptop.objects.all()
-        
-#         laptops = Laptop.objects.all()
-        
-#         print(queryset)
-#         serializer = LaptopSerializer(laptops, many=True)
-#         return Response(serializer.data)
-
-
-# class ChoiceListAPI(APIView):
-#     def get(self, request):
-#         queryset = Choice.objects.all()
-#         print(queryset)
-#         serializer = ChoiceSerializer(queryset, many=True)
-#         return Response(serializer.data)
-
-
-# class QuestionListAPI(APIView):
-#     def get(self, request):
-#         queryset = Question.objects.all()
-#         print(queryset)
-#         serializer = QuestionSerializer(queryset, many=True)
-#         return Response(serializer.data)
-
-# class QNAListAPI(APIView):
-#     def get(self, request):
-#         queryset = Question.objects.all()
-#         print(queryset)
-#         serializer = QNASerializer(queryset, many=True)
-#         return Response(serializer.data)
-
-# 연습
 def results(request):
     q0_choice = request.POST.get("question0")
     q1_choice = request.POST.get("question1")
@@ -135,38 +43,23 @@ def results(request):
     q6_choice = request.POST.get("question6")
     q7_choice = request.POST.get("question7")
     q8_choice = request.POST.get("question8")
-    '''
-    if q0 == 1:
-        result0 = Laptop.objects.filter(cpu_level =1)
-    else:
-        reulst0 = ~~
-        
-    if q1 == 3:
-        result1 = result0.ogg()
-        
-    '''   
+     
     q = Q()
     
     if q0_choice == '1':
         q.add(Q(display__gte=15), q.AND)
-        #results0 = Laptop.objects.filter(display__gte=15)
     else:
         q.add(Q(display__lt=15), q.AND)
-        #results0 = Laptop.objects.filter(display__lt=15)
     
     if q1_choice == '3':
         q.add(Q(cpu_level=1), q.AND)
-        #results1 = results0.filter(cpu_level=1)
     else:
-        q.add(Q(cpu_level__gt=1), q.AND)
-        #results1 = results0.filter(cpu_level__gt=1)
+        pass
     
     if q2_choice == '5':
         q.add(Q(ram__gte=16), q.AND)
-        #results2 = results1.filter(ram=16)
     else:
-        q.add(Q(ram__lt=16), q.AND)
-        #results2 = results1.filter(ram__lt=16)
+        pass
         
     if q3_choice == '7':
         q.add(Q(os_type='I'), q.AND)
@@ -183,32 +76,85 @@ def results(request):
     else:
         q.add(Q(touch='N'), q.AND)
         
-    if q6_choice == '14':
-        pass
+    if q6_choice == '14' or q6_choice == '15':
+        q.add(Q(cpu_level = 1), q.AND)
     else:
         pass
     
     if q7_choice == '19':
-        q.add(Q(sales_price__lte=1000000), q.AND)
+        q.add(Q(final_price__lte=1000000), q.AND)
     elif q7_choice == '20':
-        q.add(Q(sales_price__lte=1500000), q.AND)
+        q.add(Q(final_price__lte=1500000), q.AND)
     
     if q8_choice == '22':
-        q.add(Q(weight__lte=13), q.AND)
+        q.add(Q(weight__lte=1.3), q.AND)
     elif q8_choice == '23':
-        q.add(Q(weight__te=15), q.AND)
+        q.add(Q(weight__lte=1.5), q.AND)
     
     
-    #results = Laptop.objects.filter(display__gte=15)
-    #resultss = results.filter(cpu_level=1)
-    results = Laptop.objects.filter(q)
-    answer = [q0_choice, q1_choice, q2_choice,q3_choice, q4_choice, q5_choice, q6_choice, q7_choice, q8_choice]
+    results = Laptop.objects.filter(q).order_by('final_price') #상위3개
     
-    print(answer)
+    if len(results) == 0:
+        return render(request, 'main/no_results.html',{"results" : results})   
+        
+    result_list = []
+    # laptopcount = Laptop.objects.get(Laptop.id=results[0].id) 
+    # laptopcount.count = laptopcount.count +1
+    # laptopcount.save()
+        # results.save()
+        # Laptop.objects.bulk_update(results[0],results[0].count+1)
+
+        # Laptop.save()
+        # data = Post.objects.get(pk=1)
+        # data.author = 'KDC'
+        # data.save()
+    #     >>> objs = [
+    # ...    Entry.objects.create(headline='Entry 1'),
+    # ...    Entry.objects.create(headline='Entry 2'),
+    # ... ]
+    # >>> objs[0].headline = 'This is entry 1'
+    # >>> objs[1].headline = 'This is entry 2'
+    # >>> Entry.objects.bulk_update(objs, ['headline'])
     
-    return render(request, 'main/results.html', {"key" : results})                            
+        # 상위1:
+    if len(results) > 0:
+        result_list.append([results[0].name, results[0].laptop_img, results[0].cpu_level, results[0].final_price, 
+                            results[0].weight, results[0].ram, results[0].battery, 
+                            results[0].display, results[0].storage_space, results[0].os_type, results[0].touch, 
+                            results[0].review, results[0].laptop_fee_url,results[0].cpu_name ,results[0].card_discount, results[0].first_price])
+
+    if len(results)>1:
+        result_list.append([results[1].name, results[1].laptop_img, results[1].cpu_level, results[1].final_price, 
+                            results[1].weight, results[1].ram, results[1].battery, 
+                            results[1].display, results[1].storage_space, results[1].os_type, results[1].touch, 
+                            results[1].review, results[1].laptop_fee_url,results[1].cpu_name ,results[1].card_discount, results[1].first_price])
+
+    if len(results)>2:
+        result_list.append([results[2].name, results[2].laptop_img, results[2].cpu_level, results[2].final_price, 
+                            results[2].weight, results[2].ram, results[2].battery, 
+                            results[2].display, results[2].storage_space, results[2].os_type, results[2].touch, 
+                            results[2].review, results[2].laptop_fee_url, results[2].cpu_name ,results[2].card_discount, results[2].first_price])
+
+    print(result_list)
+        # Laptop.count += 1
+    '''
+    selected_choice = Answer.answer_set.get(pk=results[0].id)
+    selected_choice.result_count += 1
+    selected_choice.save()
+     '''
+    # answer = Answer()
+    # answechoicechoicechoicechoicechoicechoicechoicechoicechoicechoicer.
+    # results[0].count += 1
+    # Laptop.save()
+    # laptopcount = Laptop.objects.get(Laptop.id=results[0].id) 
+    # laptopcount.count = laptopcount.count +1
+    # laptopcount.save()
     
-#
-#
-#
-#
+    return render(request, 'main/results.html',{"result_list" : result_list})                            
+
+def all_laptop(request):
+    laptops = Laptop.objects.all()
+
+    context = {'laptops': laptops}
+
+    return render(request, 'main/all_laptop.html', context=context)

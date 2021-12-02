@@ -21,10 +21,88 @@ html, body{
   height: 100vh;
 }
 
-#qna {
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes rotate {
+  0% {
+      transform: translateY(0);
+  }
+  25% {
+      transform: translateY(-20%);
+  }
+  50% {
+      transform: translateY(-40%);
+  }
+  75% {
+      transform: translateY(-60%);
+  }
+  100% {
+      transform: translateY(-80%);
+  }
+}
+
+.intro h1{
+  font-family: "GmarketSansBold";
+  font-size: 25px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.type {
+  font-size: 20px;
+  line-height: 3em;
+  height: 3em;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "GmarketSansBold";
+}
+
+.type_list {
+  animation: rotate 7s infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 결과 */
+.result_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.result_data .data_wrap {
+  width: 270px;
+  padding: 15px;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  line-height: 1.5;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.result_data h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 0 20px;
+  font-family: "GmarketSansBold";   
+}
+
+.result_data li {
+  font-size: 13px;
+  padding-bottom: 10px;
+  font-family: "GmarketSansBold";
 }

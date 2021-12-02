@@ -7,9 +7,9 @@ class Laptop(models.Model):
     name = models.CharField(max_length=200)
     # 몇 명이 해당 랩탑에 해당하는 것을 선택했는가
     count = models.IntegerField(default=0, null=True)
-    laptop_store_url = models.TextField(null=True)
-    laptop_fee_url = models.TextField(null=True)
-    laptop_img = models.TextField(null=True)
+    laptop_store_url = models.URLField(null=True)
+    laptop_fee_url = models.URLField(null=True)
+    laptop_img = models.ImageField(null=True)
     cpu_name = models.CharField(max_length=45, null=True)
     cpu_level = models.IntegerField(default=1)
     weight = models.FloatField(null=True)
@@ -36,7 +36,7 @@ class Laptop(models.Model):
 class Question(models.Model):
     question_contents = models.CharField(max_length=45, null=True)
     question_describe = models.CharField(max_length=45, null=True)
-    question_img = models.TextField(null=True)
+    question_img = models.ImageField(null=True)
     question_type = models.CharField(max_length=45, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
@@ -68,7 +68,7 @@ class Choice(models.Model):
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
-    
+    result_count = models.IntegerField(default=0, null=True)
     
     
     

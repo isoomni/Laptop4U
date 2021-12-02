@@ -121,3 +121,16 @@ Welcome to Laptop 4 U!
         
     +TODO
         - question6 용도 구분 필요
+        
+## 211202 개발일지
+
+### EUNJEONG, isoomni, 0104suyeon
+
+    + DONE
+        - 필터링 구현 완료
+        - results.html 페이지로 넘기기 완료
+        - all_laptops.html 페이지 구현
+    
+    + TODO
+        - 노트북 카운트 구현
+        - 유사한 다른 노트북 구현
