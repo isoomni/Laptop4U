@@ -106,7 +106,7 @@ Welcome to Laptop 4 U!
 ### EUNJEONG, isoomni, 0104suyeon
 
     +DONE
-        - views.py의 def reulst 수정
+        - views.py의 def result 수정
             - details.html에서 input 값 가져옴
             - input 값 바탕으로 필터링 구현
         - details.html 질문 출력 방식 수정
@@ -134,3 +134,12 @@ Welcome to Laptop 4 U!
     + TODO
         - 노트북 카운트 구현
         - 유사한 다른 노트북 구현
+        
+## 211205 개발일지
+
+### EUNJEONG, isoomni, 0104suyeon
+
+    + DONE
+        - 유사한 다른 노트북 조회 구현
+        - 노트북 카운트 구현
+        - 서버 끝!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>.<

@@ -14,7 +14,7 @@ from .models import Question, Laptop, Choice, Answer
 
 def index(request):
     
-    rank = Laptop.objects.order_by('count')
+    rank = Laptop.objects.order_by('-count')
 
     laptops = Laptop.objects.all()
     # counts = Laptop.objects.count()
@@ -98,23 +98,9 @@ def results(request):
         return render(request, 'main/no_results.html',{"results" : results})   
         
     result_list = []
-    # laptopcount = Laptop.objects.get(Laptop.id=results[0].id) 
-    # laptopcount.count = laptopcount.count +1
-    # laptopcount.save()
-        # results.save()
-        # Laptop.objects.bulk_update(results[0],results[0].count+1)
+    similar_list = []
+    similar_len = 0
 
-        # Laptop.save()
-        # data = Post.objects.get(pk=1)
-        # data.author = 'KDC'
-        # data.save()
-    #     >>> objs = [
-    # ...    Entry.objects.create(headline='Entry 1'),
-    # ...    Entry.objects.create(headline='Entry 2'),
-    # ... ]
-    # >>> objs[0].headline = 'This is entry 1'
-    # >>> objs[1].headline = 'This is entry 2'
-    # >>> Entry.objects.bulk_update(objs, ['headline'])
     
         # 상위1:
     if len(results) > 0:
@@ -124,13 +110,15 @@ def results(request):
                             results[0].review, results[0].laptop_fee_url,results[0].cpu_name ,results[0].card_discount, results[0].first_price])
 
     if len(results)>1:
-        result_list.append([results[1].name, results[1].laptop_img, results[1].cpu_level, results[1].final_price, 
+        similar_len += 1
+        similar_list.append([results[1].name, results[1].laptop_img, results[1].cpu_level, results[1].final_price, 
                             results[1].weight, results[1].ram, results[1].battery, 
                             results[1].display, results[1].storage_space, results[1].os_type, results[1].touch, 
                             results[1].review, results[1].laptop_fee_url,results[1].cpu_name ,results[1].card_discount, results[1].first_price])
 
     if len(results)>2:
-        result_list.append([results[2].name, results[2].laptop_img, results[2].cpu_level, results[2].final_price, 
+        similar_len += 1
+        similar_list.append([results[2].name, results[2].laptop_img, results[2].cpu_level, results[2].final_price, 
                             results[2].weight, results[2].ram, results[2].battery, 
                             results[2].display, results[2].storage_space, results[2].os_type, results[2].touch, 
                             results[2].review, results[2].laptop_fee_url, results[2].cpu_name ,results[2].card_discount, results[2].first_price])
@@ -142,15 +130,15 @@ def results(request):
     selected_choice.result_count += 1
     selected_choice.save()
      '''
-    # answer = Answer()
-    # answechoicechoicechoicechoicechoicechoicechoicechoicechoicechoicer.
-    # results[0].count += 1
-    # Laptop.save()
-    # laptopcount = Laptop.objects.get(Laptop.id=results[0].id) 
-    # laptopcount.count = laptopcount.count +1
-    # laptopcount.save()
+
+    laptopcount = Laptop.objects.get(id=results[0].id) 
+    laptopcount.count = laptopcount.count +1
+    laptopcount.save()
     
-    return render(request, 'main/results.html',{"result_list" : result_list})                            
+    
+    
+    return render(request, 'main/results.html',{"result_list" : result_list, 
+                                                "similar_list" : similar_list, "similar_len" : similar_len})                            
 
 def all_laptop(request):
     laptops = Laptop.objects.all()
