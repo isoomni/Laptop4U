@@ -1,55 +1,57 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/all_laptop.css' %}" />
+
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">   -->
-	<title>Laptop 4 U</title>
-</head>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="{% static 'main/js/scroll.js' %}"></script>
+    <title>Laptop 4 U</title>
+</head>
+
 <body>
-    
-	<div class="container-fluid">
+
+    <div class="container-fluid">
         <section id="result">
-			<!-- 결과 출력 -->
-			<h1>뭘 좋아할지 몰라 모두 준비했어요</h1>
-			
-			<div>
-				{% for laptop in laptops %}
-					<h2>{{ laptop.name }}</h2>
-					<img src = "{{ laptop.laptop_img }}" alt="img"><br/>
+            <h1>뭘 좋아할지 몰라 모두 준비했어요</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4 laptops">
+                {% for laptop in laptops %}
+                <div class="col laptop">
+                    <div class="card h-100">
+                        <img src="{{ laptop.laptop_img }}" class="card-img-top" alt="img">
 
-					00님께 딱 맞는 노트북은 {{ laptop.name }}입니다!<br/>
-					이 노트북의 가격은 {{ laptop.final_price }}입니다.<br/>
-					구매를 원하신다면 <a href = "{{ laptop.laptop_fee_url}}"> 여기</a>로 방문해주세요~<br/><br/>
-					더 많은 정보를 원하신다면 밑으로 내려주세요!
-					
-					<div>
-						<p>cpu 레벨을 5단계로 구분했을 때 해당 노트북은 {{ laptop.cpu_level}}등급입니다.</p>
-						<p>무게는 {{ laptop.weight}}kg 입니다.</p>
-						<p>RAM는 {{ laptop.ram}}GB 입니다.</p>
-						<p>배터리는 {{ laptop.battery}}시간 입니다.</p>
+                        <div class="card-body">
+                            <h5 class="card-title mx-auto">{{ laptop.name }}</h5>
+                            <div class="card-text"> 이 노트북의 가격은 {{ laptop.final_price }}입니다.<br />
+                                구매를 원하신다면 <a href="{{ laptop.laptop_fee_url}}"> 여기</a>로 방문해주세요~<br />
+                                <div>
 
-					</div>
-				{% endfor %}
-                
-			
-			</div>
-			
-			
-      		
-		 	<div class="movebtn">
-                        <a href=https://foru-ffsjy.run.goorm.io> <button type="button" class="btn btn-light"> &lt; 홈으로 </button> </a>
+
+                                    <p>cpu 레벨을 5단계로 구분했을 때 해당 노트북은 {{ laptop.cpu_level}}등급입니다.</p>
+                                    <p>무게는 {{ laptop.weight}}kg 입니다.</p>
+                                    <p>RAM는 {{ laptop.ram}}GB 입니다.</p>
+                                    <p>배터리는 {{ laptop.battery}}시간 입니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-		</section>
-        
+
+            <div class="d-grid gap-2 col-6 mx-auto mt-4 mb-4">
+                <a href="https://foru-ffsjy.run.goorm.io" class="btn btn-light" role="button"> &lt;홈으로> </a>
+            </div>
+        </section>
+
     </div>
-    
-
-
 </body>
-    
+
 </html>

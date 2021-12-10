@@ -1,0 +1,50 @@
+ul {
+  text-align: center;
+  border-top: 3px solid black;
+  padding-top: 20px;
+
+
+    
+}
+html, body{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#9195db+0,9195db+12,a9e4f7+60,a9e4f7+100 */
+  background: #9195db; /* Old browsers */
+  background: -moz-linear-gradient(top,  #9195db 0%, #9195db 12%, #a9e4f7 60%, #a9e4f7 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #9195db 0%,#9195db 12%,#a9e4f7 60%,#a9e4f7 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #9195db 0%,#9195db 12%,#a9e4f7 60%,#a9e4f7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9195db', endColorstr='#a9e4f7',GradientType=0 );
+  /* height: 100vh;
+  background-repeat : repeat; */
+  margin : 0 auto;
+  width: 300px;
+}
+
+img {
+    margin: 0 auto;
+    
+    
+}
+
+h1 {
+    text-align: middle;
+    padding-top : 20px;
+    text-align: center;
+    padding-bottom : 20px;
+    font-weight: bold;
+}
+h2 {
+    text-align: middle;
+    padding-top : 20px;
+    text-align: center;
+    padding-bottom : 20px;
+    font-weight: bold;
+}
+h5 {
+    text-align: center;
+    padding-bottom: 20px;
+    
+}
+
+*{
+  font-family: 'Gowun Dodum', sans-serif;
+}

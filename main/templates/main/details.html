@@ -23,13 +23,15 @@
                 {% csrf_token %}
                 
                 <div class="question q0">
+                    <div class="col-6 pb-3">
+                        <img src="{% static 'main/images/q1.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q1. {{questions.0.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.0.choice_set.all %}
-                        <div>
-
+                        <div class="pb-2">
                             <input type="radio" name="question0" value="{{choice.id}}" id="question0-{{ choice.id }}">
                             <label for="question0-{{ choice.id }}">{{ choice.choice_contents }}</label>
                         </div>
@@ -40,16 +42,19 @@
                         <a href=https://foru-ffsjy.run.goorm.io> <button type="button" class="btn btn-light"> &lt; 홈으로 </button> </a>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(0)"> 다음 ></button>
                     </div> 
-                    
+                    <p>1/9</p>    
                 </div>
 
                 <div class="question q1">
+                    <div class="col-7">
+                        <img src="{% static 'main/images/q2.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
 					<h3>
                         Q2. {{questions.1.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.1.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question1" value="{{choice.id}}" id="question1-{{ choice.id }}">
                             <label for="question1-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -59,18 +64,22 @@
                     
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(1)"> &lt; 이전</button>
+                        
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(1)"> 다음 ></button>
                     </div> 
-                    
+                    <p>2/9</p>
                 </div>
 
                 <div class="question q2">
+                    <div class="col-6 pb-5">
+                        <img src="{% static 'main/images/q3.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q3. {{questions.2.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.2.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question2" value="{{choice.id}}" id="question2-{{ choice.id }}">
                             <label for="question2-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -82,15 +91,19 @@
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(2)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(2)"> 다음 ></button>
                     </div> 
+                    <p>3/9</p>
                 </div>
 
                 <div class="question q3">
+                    <div class="col-8">
+                        <img src="{% static 'main/images/q4.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q4. {{questions.3.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.3.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question3" value="{{choice.id}}" id="question3-{{ choice.id }}">
                             <label for="question3-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -101,16 +114,20 @@
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(3)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(3)"> 다음 ></button>
-                    </div> 
+                    </div>
+                    <p>4/9</p>
                 </div>
 
                 <div class="question q4">
+                    <div class="col-8 pb-3">
+                        <img src="{% static 'main/images/q5.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q5. {{questions.4.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.4.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question4" value="{{choice.id}}" id="question4-{{ choice.id }}">
                             <label for="question4-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -121,16 +138,20 @@
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(4)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(4)"> 다음 ></button>
-                    </div> 
+                    </div>
+                    <p>5/9</p>
                 </div>
 
                 <div class="question q5">
+                    <div class="col-6 pb-5">
+                        <img src="{% static 'main/images/q6.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q6. {{questions.5.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.5.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question5" value="{{choice.id}}" id="question5-{{ choice.id }}">
                             <label for="question5-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -141,16 +162,21 @@
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(5)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(5)"> 다음 ></button>
-                    </div> 
+                    </div>
+                    <p>6/9</p>
                 </div>
 
                 <div class="question q6">
+                    
+                    <div class="col-9 pb-3">
+                        <img src="{% static 'main/images/q7.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                     <h3>
                         Q7. {{questions.6.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.6.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question6" value="{{choice.id}}" id="question6-{{ choice.id }}">
                             <label for="question6-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -161,16 +187,21 @@
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(6)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(6)"> 다음 ></button>
-                    </div> 
+                    </div>
+                    <p>7/9</p>
                 </div>
 
                 <div class="question q7">
+                    <div class="col-4 pb-4">
+                        <img src="{% static 'main/images/q8.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
+
                     <h3>
                         Q8. {{questions.7.question_contents}}
                     </h3>
-                    <div>
+                    <div class="pt-4 pb-4">
                         {% for choice in questions.7.choice_set.all %}
-                        <div>
+                        <div class="pb-2">
 
                             <input type="radio" name="question7" value="{{choice.id}}" id="question7-{{ choice.id }}">
                             <label for="question7-{{ choice.id }}">{{ choice.choice_contents }}</label>
@@ -181,16 +212,20 @@
                     <div class="movebtn">
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(7)"> &lt; 이전</button>
                         <button type="button" class="btn btn-light" onclick="js:scrollDown(7)"> 다음 ></button>
-                    </div> 
+                    </div>
+                    <p>8/9</p>
                   </div>
                 
                     <div class="question q8">
+                    <div class="col-6 pb-5">
+                        <img src="{% static 'main/images/q9.png' %}" alt="mainImage_1" class="img-fluid">
+                    </div>
                         <h3>
                             Q9. {{questions.8.question_contents}}
                         </h3>
-                        <div>
+                        <div class="pt-4 pb-4">
                             {% for choice in questions.8.choice_set.all %}
-                            <div>
+                            <div class="pb-2">
 
                                 <input type="radio" name="question8" value="{{choice.id}}"
                                     id="question8-{{ choice.id }}">
@@ -203,7 +238,7 @@
                         <button type="button" class="btn btn-light" onclick="js:scrollUp(8)"> &lt; 이전</button>
                         <button type="submit" class="btn btn-light"> 완료 ></button>
                     </div> 
-
+                    <p>9/9</p>
                  </div>   
                 
             </form>

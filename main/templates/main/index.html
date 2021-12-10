@@ -2,6 +2,33 @@
 <html lang="ko">
 
 <head>
+    <!-- 준석 Searching engine_naver -->
+    <meta name="naver-site-verification" content="0ce5dbfcf65482cf18a07932ca8270c9a87fd953" />
+    <!-- 준석 Searching engine_google-->
+    <meta name="google-site-verification" content="t11BrmkdJD_eX-2Ker6G8o_t5IqnOrESKmj5jeejwLE" />
+    <!-- 준석 Searching engine_Bing-->
+    <meta name="msvalidate.01" content="DC71D3317BD42FCEF487C20EFDB7D210" />
+    <!-- 구글 태그 매니저 -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NSCCVGC');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- 준석 google Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE1BX35JW4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RE1BX35JW4');
+    </script>
+    
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,10 +40,19 @@
     <!-- <link rel="stylesheet" href="./css/default.css">     -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'main/css/default.css' %}" />
+    <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+    Kakao.init('90cac9fa0a57f1e0b6f4d555d76c17c7');
+Kakao.isInitialized();
+    </script> -->
 
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSCCVGC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
  <div class="container-fluid">
     <section id="main">
         <!-- 팀 로고 -->
@@ -24,7 +60,7 @@
             <img src="{% static 'main/images/start_page.png' %}" alt="mainImage_1" class="img-fluid">
         </div>
 
-         <div class="col-lg-2 col-9 mx-auto mb-3 px-5">
+         <div class="col-lg-2 col-7 mx-auto mb-3 px-5">
             <img src="{% static 'main/images/laptop.png' %}" alt="mainImage_2" class="img-fluid">
         </div>
 
@@ -33,12 +69,12 @@
             <h1>나에게 맞는 노트북은?</h1>
             <div class="type">
                 <ul class="type_list" style="list-style: none;">
-                    <li>macbook pro</li>
-                    <li>macbook air M1</li>
-                    <li>Samsung pro 365</li>
-                    <li>LG Gram</li>
-                    <li>kita</li>
-                    <li>deungdeung</li>
+                    <li>MACBOOK PRO</li>
+                    <li>MACBOOK AIR M1</li>
+                    <li>SAMSUNG PRO 365</li>
+                    <li>LG GRAM</li>
+                    <li>HANSUNG COMPUTER</li>
+                    <li>HP NOTEBOOK</li>
                 </ul>
             </div>
         </div>
@@ -58,12 +94,16 @@
                 </ul>
             </div>	
         </div>
+        <!-- 준석 공유하기 버튼 result 페이지로 이동 -->
+        <!-- <button type="button" class = "kakao mt -3 py-2 px-3" onclick ="js:kakaoShare()">
+            공유하기</button> -->
             
 		 <!-- Laptop 별 인원 수 카운트 -->
 		<!-- {% for developer in developers %}
     		<p>{{ developer.name }} : {{ developer.count }}명</p>
   		{% endfor %} --> 
     </section>
+    <!-- <script src="foru/main/static/main/js/share.js" charset = 'utf-8'></script> -->
 </div>
 </body>
 

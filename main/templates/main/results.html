@@ -1,107 +1,171 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/results.css' %}" />
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">   -->
-	<title>Laptop 4 U</title>
-</head>   
-<body>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laptop 4 U</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./css/default.css">     -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('90cac9fa0a57f1e0b6f4d555d76c17c7');
+        Kakao.isInitialized();
+    </script>
+    <script src= "{% static 'main/js/share.js' %}"></script>
     
-	<div class="container-fluid">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
         <section id="result">
-			<!-- 결과 출력 -->
-			<h1>당신의 Laptop!!</h1>
-			<div>
-				{{ result_list.0.0 }}<br/>
-                <img src = "{{ result_list.0.1}}" alt="img"><br/>
-                
-                00님께 딱 맞는 노트북은 {{ result_list.0.0 }}입니다!<br/>
-                이 노트북의 가격은 {{ result_list.0.3 }}입니다.<br/>
-                구매를 원하신다면 <a href = "{{ result_list.0.12}}"> 여기</a>로 방문해주세요~<br/>
-            <br/>
-                더 많은 정보를 원하신다면 밑으로 내려주세요!
-                <div>
-                <p>cpu 레벨을 5단계로 구분했을 때 해당 노트북은 {{ result_list.0.2}}등급입니다.</p>
-                <p>무게는 {{ result_list.0.4}}kg 입니다.</p>
-                <p>RAM는 {{ result_list.0.5}}GB 입니다.</p>
-                <p>배터리는 {{ result_list.0.6}}시간 입니다.</p>
-                
-                </div>
-            <!-- [0]name, [1]laptop_img, [2]cpu_level, [3]final_price, [4]weight,
-            [5]ram, [6]battery, [7]display, [8]storage_space, [9]os_type, [10]touch, [11]review,
-            [12]laptop_fee_url, [13]cpu_name, [14]card_discount, [15]first_price..-->   
-			
-            {% if similar_len >= 1 %}
-			</div>
+            <!-- 결과 출력 -->
+            <h1>당신의 Laptop!</h1>
+            <div>
             
-            <h2>유사한 다른 노트북을 살펴보아요!</h2>
+                
+                    
+                
+                <img src="{{ result_list.0.1}}" alt="노트북 추천" style="margin-left: auto; margin-right: auto; display: block;"><br />
+                <h5>{{ result_list.0.0 }}</h5>
+                
+                    
+                원가는 <b>{{ result_list.0.15 }}원에</b> <span style="color:red">{{ result_list.0.14 }}% 할인</span> 적용된
+                <br>
+                현재 세일가는 <b>{{ result_list.0.3 }}원</b> 입니다.
+                <br>
+                <br>
+                
+                <div class="col-lg-8 col-10 mx-auto">
+                    <a href="{{ result_list.0.12}}"><img src="{% static 'main/images/purchase.png' %}" class="img-fluid"></a><br />
+                
+                </div> 
+                
+                
+                <br>
+                <ul>
+                    <li>CPU는 <b>{{ result_list.0.13 }}</b>로 <b>{{ result_list.0.2}}등급</b>입니다.</li>
+                    <li>무게는 <b>{{ result_list.0.4}}kg</b> 입니다.</li>
+                    <li>RAM는 <b>{{ result_list.0.5}}GB</b> 입니다.</li>
+                    <li>배터리는 <b>{{ result_list.0.6}}시간</b> 입니다.</li>
+                    <li>화면 크기는 <b>{{ result_list.0.7 }}인치</b> 입니다.</li>
+
+                </ul>
+                <!-- [0]name, [1]laptop_img, [2]cpu_level, [3]final_price, [4]weight,
+        [5]ram, [6]battery, [7]display, [8]storage_space, [9]os_type, [10]touch, [11]review,
+        [12]laptop_fee_url, [13]cpu_name, [14]card_discount, [15]first_price..-->
+
+                {% if similar_len >= 1 %}
+            </div>
+                <br>
+                <br>
+            <h1>유사한 다른 노트북을 살펴보아요!</h1>
             <div>
                 <div>
-                    이 노트북은 어떠신가요??<br/>
-				{{ similar_list.0.0 }}<br/>
-                <img src = "{{ similar_list.0.1}}" alt="img"><br/>
-                
-                00님께 딱 맞는 다른 노트북은 {{ similar_list.0.0 }}입니다!<br/>
-                이 노트북의 가격은 {{ similar_list.0.3 }}입니다.<br/>
-                구매를 원하신다면 <a href = "{{ similar_list.0.12}}"> 여기</a>로 방문해주세요~<br/>
-            <br/>
-                더 많은 정보를 원하신다면 밑으로 내려주세요!
-                <div>
-                <p>cpu 레벨을 5단계로 구분했을 때 해당 노트북은 {{ similar_list.0.2}}등급입니다.</p>
-                <p>무게는 {{ similar_list.0.4}}kg 입니다.</p>
-                <p>RAM는 {{ similar_list.0.5}}GB 입니다.</p>
-                <p>배터리는 {{ similar_list.0.6}}시간 입니다.</p>
-                
+                    
+                    <h5>
+                      {{ similar_list.0.0 }}  
+                    </h5>
+                    <img src="{{ similar_list.0.1}}" alt="노트북 추천" style="margin-left: auto; margin-right: auto; display: block;"><br />
+
+                    원가는 <b>{{ similar_list.0.15 }}원에</b> <span style="color:red">{{ similar_list.0.14 }}% 할인</span> 적용된
+                <br>
+                현재 세일가는 <b>{{ similar_list.0.3 }}원</b> 입니다.
+                <br>
+                <br>
+                    <div class="col-lg-8 col-10 mx-auto">
+                    <a href="{{ similar_list.0.12}}"><img src="{% static 'main/images/purchase.png' %}" class="img-fluid"></a><br />
+                        <br/>
+                <ul>
+                    <li>CPU는 <b>{{ similar_list.0.13 }}</b>로 <b>{{ similar_list.0.2}}등급</b>입니다.</li>
+                    <li>무게는 <b>{{ similar_list.0.4}}kg</b> 입니다.</li>
+                    <li>RAM는 <b>{{ similar_list.0.5}}GB</b> 입니다.</li>
+                    <li>배터리는 <b>{{ similar_list.0.6}}시간</b> 입니다.</li>
+                    <li>화면 크기는 <b>{{ similar_list.0.7 }}인치</b> 입니다.</li>
+
+                </ul>
                 </div>
+                {% endif %}
+
+                {% if similar_len >= 2 %}
             </div>
-            {% endif %}
-                
-            {% if similar_len >= 2 %}
-			</div>
-            
+
             <h2>또 다른 유사한 노트북을 살펴보아요!</h2>
             <div>
                 <div>
-                    이 노트북은 어떠신가요??<br/>
-				{{ similar_list.1.0 }}<br/>
-                <img src = "{{ similar_list.1.1}}" alt="img"><br/>
-                
-                00님께 딱 맞는 다른 노트북은 {{ similar_list.1.0 }}입니다!<br/>
-                이 노트북의 가격은 {{ similar_list.1.3 }}입니다.<br/>
-                구매를 원하신다면 <a href = "{{ similar_list.1.12}}"> 여기</a>로 방문해주세요~<br/>
-            <br/>
-                더 많은 정보를 원하신다면 밑으로 내려주세요!
-                <div>
-                <p>cpu 레벨을 5단계로 구분했을 때 해당 노트북은 {{ similar_list.1.2}}등급입니다.</p>
-                <p>무게는 {{ similar_list.1.4}}kg 입니다.</p>
-                <p>RAM는 {{ similar_list.1.5}}GB 입니다.</p>
-                <p>배터리는 {{ similar_list.1.6}}시간 입니다.</p>
-                
+                    이 노트북은 어떠신가요??<br />
+                    {{ similar_list.1.0 }}<br />
+                    <img src="{{ similar_list.1.1}}" alt="img"><br />
+
+                    00님께 딱 맞는 다른 노트북은 {{ similar_list.1.0 }}입니다!<br />
+                    이 노트북의 가격은 {{ similar_list.1.3 }}입니다.<br />
+                    구매를 원하신다면 <a href="{{ similar_list.1.12}}"> 여기</a>로 방문해주세요~<br />
+                    <br />
+                    더 많은 정보를 원하신다면 밑으로 내려주세요!
+                    <ul>
+                        <li>CPU는 <b>{{ similar_list.1.13 }}</b>로 <b>{{ similar_list.1.2}}등급</b>입니다.</li>
+                        <li>무게는 <b>{{ similar_list.1.4}}kg</b> 입니다.</li>
+                        <li>RAM는 <b>{{ similar_list.1.5}}GB</b> 입니다.</li>
+                        <li>배터리는 <b>{{ similar_list.1.6}}시간</b> 입니다.</li>
+                        <li>화면 크기는 <b>{{ similar_list.1.7 }}인치</b> 입니다.</li>
+
+                    </ul>
                 </div>
+                {% endif %}
+
+                <div class="col-lg-6 col-10 mx-auto">
+                    <a href=https://foru-ffsjy.run.goorm.io><img src="{% static 'main/images/Restart.png' %}" class="img-fluid"></a>
+                </div>
+                <div class="col-lg-6 col-10 mx-auto">
+                    <a href=https://foru-ffsjy.run.goorm.io/all-laptops><img src="{% static 'main/images/SeeAll.png' %}" class="img-fluid"></a>
+                </div>
+                <div>
+                <!-- 준석 공유하기 버튼 -->
+                 <img src="{% static 'main/images/share.png' %}" class = "kakao mt -3 py-2 px-3" onclick ="js:kakaoShare()">
+                </div>
+                
+                <!-- 준석 토글 스위치 구현 -->
+            <div class="mb-2">
+                <details>
+                    <summary>CPU 설명</summary>
+                    애플의 M1 : 애플이 자체 제작한 프로세스로 하루종일 써도 달지 않는 배터리를 자랑합니다.
+                    <br>
+                    i로 시작하는 intel의 프로세서 : 인텔이 개발한 프로세서로 업무, 간단한 게임, 작업 등 가격대에 따라서 만능 성능입니다.
+                    <br>
+                    
+                </details>
             </div>
-            {% endif %}
-			
-			<div class="movebtn">
-                        <a href=https://foru-ffsjy.run.goorm.io> <button type="button" class="btn btn-light"> &lt; 홈으로 </button> </a>
+            <div class="mb-4">
+                <details>
+                    <summary>화면 크기에 대한 고찰</summary>
+                    10인치~13인치 : 가벼운게 최고! 들고다니기 편해요. 외장 모니터를 집에서 활용하고 외부에선 간단한 작업을 하시는 분들에게 추천해요
+                    <br>
+                    13인치~17인치 : 노트북 하나로 다 할거에요. 하시면 구매하시면 됩니다.
+                </details>
             </div>
-			<div class="movebtn">
-            	<a href=https://foru-ffsjy.run.goorm.io/all-laptops/> <button type="button" class="btn btn-light"> &lt; 모든 노트북 정보 보기 </button> </a>
+                
             </div>
-	   
-        	
-		
-		</section>
+             </div> 
+            
+        </section>
         
     </div>
-    
+
 
 
 </body>
-    
+
 </html>
