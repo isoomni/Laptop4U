@@ -1,15 +1,14 @@
 from django.db import models
 
-# Create your models here.
 
 
+#Laptop 테이블의 fields(테이블의 열) 정의
 class Laptop(models.Model):
     name = models.CharField(max_length=200)
-    # 몇 명이 해당 랩탑에 해당하는 것을 선택했는가
-    count = models.IntegerField(default=0, null=True)
-    laptop_store_url = models.TextField(null=True)
-    laptop_fee_url = models.TextField(null=True)
-    laptop_img = models.TextField(null=True)
+    count = models.IntegerField(default=0, null=True)  # 몇 명이 해당 랩탑에 해당하는 것을 선택했는가
+    laptop_store_url = models.URLField(null=True)
+    laptop_fee_url = models.URLField(null=True)
+    laptop_img = models.URLField(null=True)
     cpu_name = models.CharField(max_length=45, null=True)
     cpu_level = models.IntegerField(default=1)
     weight = models.FloatField(null=True)
@@ -32,11 +31,11 @@ class Laptop(models.Model):
     def __str__(self):
         return self.name
 
-
+#Question 테이블의 fields(테이블의 열) 정의
 class Question(models.Model):
     question_contents = models.CharField(max_length=45, null=True)
     question_describe = models.CharField(max_length=45, null=True)
-    question_img = models.TextField(null=True)
+    question_img = models.URLField(null=True)
     question_type = models.CharField(max_length=45, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
@@ -45,7 +44,7 @@ class Question(models.Model):
     def __str__(self):
         return str(self.question_contents)
 
-
+#Choice 테이블의 fields(테이블의 열) 정의
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_contents = models.CharField(max_length=45, null=True)

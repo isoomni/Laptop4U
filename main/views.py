@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.db.models import Q
-from .filters import LaptopFilter
+#from .filters import LaptopFilter
 from django.core.paginator import Paginator
 
 from .models import Question, Laptop, Choice
@@ -13,7 +13,7 @@ def index(request):
     
     # 노트북을 count별로 내림차순하여 정렬한다.
     rank = Laptop.objects.order_by('-count')
-
+    #Laptop의 모든 객체를 가져온다.
     laptops = Laptop.objects.all()
 
     context = {'laptops': laptops, 'rank':rank}
@@ -22,6 +22,7 @@ def index(request):
 
 
 def details(request):
+    #Question의 모든 객체를 가져온다.
     questions = Question.objects.all()
 
     context = {'questions': questions}
@@ -136,6 +137,7 @@ def results(request):
                                                 "similar_list" : similar_list, "similar_len" : similar_len})                            
 
 def all_laptop(request):
+    #Laptop의 모든 객체를 가져온다
     laptops = Laptop.objects.all()
 
     context = {'laptops': laptops}

@@ -18,22 +18,22 @@ html, body{
 #result {
   display: flex;
   flex-direction: column;
-  margin: 0 7vw;  
+  margin: 0 4vw;  
   /* justify-content: center;
   align-items: center; */
   /* height: 100vh; */
     
 }
 
-.laptop{
-    /* height: 100vh; */
+/* .laptop{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: fit-content;
     margin: 0 auto;
-}
+} */
 
 .movebtn{
     display: flex;
@@ -52,7 +52,7 @@ h1{
 }
 
 img{
-    width: 80%;
+    width: 60% !important;
     height: auto;
     margin: 0 auto;
 }
